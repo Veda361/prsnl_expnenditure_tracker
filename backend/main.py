@@ -9,9 +9,14 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
+origins = [
+    "http://localhost:5173",
+    "https://prsnl-expnenditure-tracker.vercel.app",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
