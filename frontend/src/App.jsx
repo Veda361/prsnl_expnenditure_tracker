@@ -4,6 +4,8 @@ import axios from "axios";
 import MonthlyBarChart from "./components/MonthlyBarChart";
 import MonthlyCategoryPieChart from "./components/MonthlyCategoryPieChart";
 
+const API = import.meta.env.VITE_API_URL;
+
 const MONTH_NAMES = [
   "January",
   "February",
@@ -95,30 +97,25 @@ const App = () => {
     });
   };
 
-
   // FETCH ALL TRANSACTIONS
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/transactions/")
+      .get(`${API}/transactions/`)
       .then((res) => setTransactions(res.data))
       .catch((err) => console.log(err));
   }, []);
-
 
   // FETCH MONTHLY SUMMARY
 
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8000/transactions/summary?month=${
-          selectedMonth + 1
-        }&year=${selectedYear}`,
+        `${API}/transactions/summary?month=${selectedMonth + 1}&year=${selectedYear}`,
       )
       .then((res) => setSummary(res.data))
       .catch((err) => console.log(err));
   }, [selectedMonth, selectedYear, transactions]);
-
 
   // FILTER MONTHLY TRANSACTIONS
 
@@ -146,10 +143,7 @@ const App = () => {
     };
 
     try {
-      const res = await axios.post(
-        "http://localhost:8000/transactions/",
-        newTransaction,
-      );
+      const res = await axios.post(`${API}/transactions/`, newTransaction)
 
       setTransactions((prev) => [...prev, res.data]);
 
