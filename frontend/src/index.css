@@ -133,10 +133,10 @@
 
 /* Neon Glow Button */
 .glow-btn {
-  --glow-color: #00ffa0; /* Indigo */
+  --glow-color: #13c382; /* Indigo */
   --glow-spread-color: rgba(99, 102, 241, 0.5);
   --enhanced-glow-color: rgb(26, 74, 121);
-  --btn-color: #00ffa0; /* Dark slate */
+  --btn-color: #18c082; /* Dark slate */
 
   border: 0.2em solid var(--glow-color);
   padding: 0.75em 2em;

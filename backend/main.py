@@ -24,6 +24,7 @@ app.add_middleware(
 
 app.include_router(router, prefix="/transactions", tags=["Transactions"])
 
+
 @app.get("/")
 def root():
     return {"message": "backend is running"}
