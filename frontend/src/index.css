@@ -1,0 +1,431 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  ;
+}
+
+
+/* Wave Button Effect */
+
+.wave-button {
+  border: none;
+  width: 140px;
+  height: 50px;
+  color: #fff;
+  background: #000;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.wave-button::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 10%;
+  bottom: 0;
+  background: #8792eb;
+  z-index: 0;
+  transition: 0.3s ease;
+  clip-path: polygon(
+    0% 74%, 4% 75%, 8% 76%, 11% 77%, 15% 78%, 20% 78%, 
+    25% 77%, 32% 77%, 37% 75%, 40% 74%, 43% 74%, 46% 73%, 
+    52% 72%, 57% 72%, 65% 74%, 66% 75%, 71% 78%, 75% 82%, 
+    81% 86%, 83% 88%, 88% 91%, 90% 94%, 94% 96%, 98% 98%, 
+    100% 100%, 82% 100%, 0 100%
+  );
+}
+
+.wave-button::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 10%;
+  top: 0;
+  transform: rotate(180deg);
+  background: #8792eb;
+  z-index: 0;
+  transition: 0.3s ease;
+  clip-path: polygon(
+    0% 74%, 4% 75%, 8% 76%, 11% 77%, 15% 78%, 20% 78%, 
+    25% 77%, 32% 77%, 37% 75%, 40% 74%, 43% 74%, 46% 73%, 
+    52% 72%, 57% 72%, 65% 74%, 66% 75%, 71% 78%, 75% 82%, 
+    81% 86%, 83% 88%, 88% 91%, 90% 94%, 94% 96%, 98% 98%, 
+    100% 100%, 82% 100%, 0 100%
+  );
+}
+
+.wave-button:hover::after,
+.wave-button:hover::before {
+  height: 80%;
+  clip-path: polygon(
+    0 30%, 9% 34%, 7% 39%, 11% 43%, 13% 33%, 17% 30%, 
+    24% 34%, 25% 35%, 30% 31%, 30% 38%, 39% 33%, 35% 43%, 
+    43% 45%, 55% 46%, 65% 74%, 67% 66%, 81% 57%, 75% 82%, 
+    81% 86%, 83% 88%, 88% 91%, 90% 94%, 94% 96%, 98% 98%, 
+    100% 100%, 82% 100%, 0 100%
+  );
+}
+
+.wave-button span {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+/* Skew Slide Button Effect */
+
+.skew-btn {
+  outline: none;
+  cursor: pointer;
+  border: none;
+  padding: 0.4rem 1.2rem;
+  font-size: 13px;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  border-radius: 9999px;
+  overflow: hidden;
+  background: #ef4444; /* red-500 */
+  color: ghostwhite;
+  transition: transform 0.2s ease;
+  margin-top: 0.1rem;
+}
+
+.skew-btn span {
+  position: relative;
+  z-index: 10;
+  transition: color 0.4s;
+}
+
+.skew-btn:hover span {
+  color: black;
+}
+
+.skew-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -10%;
+  width: 120%;
+  height: 100%;
+  background: #000;
+  transform: skew(30deg);
+  transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+  z-index: 0;
+}
+
+.skew-btn:hover::before {
+  transform: translate3d(100%, 0, 0);
+}
+
+
+/* Neon Glow Button */
+.glow-btn {
+  --glow-color: #00ffa0; /* Indigo */
+  --glow-spread-color: rgba(99, 102, 241, 0.5);
+  --enhanced-glow-color: rgb(26, 74, 121);
+  --btn-color: #00ffa0; /* Dark slate */
+
+  border: 0.2em solid var(--glow-color);
+  padding: 0.75em 2em;
+  color: #000000;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: var(--btn-color);
+  border-radius: 0.75em;
+  outline: none;
+
+  box-shadow:
+    0 0 1em 0.25em var(--glow-color),
+    0 0 3em 0.75em var(--glow-spread-color),
+    inset 0 0 0.5em 0.25em var(--glow-color);
+
+  text-shadow: 0 0 0.5em var(--glow-color);
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+}
+
+.glow-btn::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 120%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--glow-spread-color);
+  filter: blur(2em);
+  opacity: 0.6;
+  transform: perspective(1.5em) rotateX(35deg) scale(1, 0.6);
+}
+
+.glow-btn:hover {
+  color: black;
+  background-color: var(--glow-color);
+  box-shadow:
+    0 0 1em 0.25em var(--glow-color),
+    0 0 4em 1.5em var(--glow-spread-color),
+    inset 0 0 0.75em 0.25em var(--glow-color);
+}
+
+.glow-btn:active {
+  transform: scale(0.96);
+  box-shadow:
+    0 0 0.6em 0.25em var(--glow-color),
+    0 0 2em 1em var(--glow-spread-color),
+    inset 0 0 0.5em 0.25em var(--glow-color);
+}
+
+/* Month Navigation Animated Button */
+.month-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px 22px;
+  border: 2px solid transparent;
+  font-size: 14px;
+  background-color: transparent;
+  border-radius: 100px;
+  font-weight: 600;
+  color: #22d3ee; /* cyan-400 */
+  box-shadow: 0 0 0 2px #22d3ee;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.month-btn svg {
+  position: absolute;
+  width: 18px;
+  fill: #22d3ee;
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.month-btn .arr-1 {
+  right: 16px;
+}
+
+.month-btn .arr-2 {
+  left: -25%;
+}
+
+.month-btn .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: #22d3ee;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.month-btn .text {
+  position: relative;
+  z-index: 1;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.month-btn:hover {
+  box-shadow: 0 0 0 12px transparent;
+  color: #0f172a;
+  border-radius: 12px;
+}
+
+.month-btn:hover .arr-1 {
+  right: -25%;
+}
+
+.month-btn:hover .arr-2 {
+  left: 16px;
+}
+
+.month-btn:hover svg {
+  fill: #0f172a;
+}
+
+.month-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 0 4px #22d3ee;
+}
+
+.month-btn:hover .circle {
+  width: 180px;
+  height: 180px;
+  opacity: 1;
+}
+
+/* Animated Delete Button */
+
+.delete-btn {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  --border-right: 3px;
+  --text-stroke-color: #f43f5e;
+  --animation-color: rgba(255, 255, 255, 0.5) ; /* rose-500 */
+  --fs-size: 0.9rem;
+
+  letter-spacing: 2px;
+  font-size: var(--fs-size);
+  font-family: Arial, sans-serif;
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+
+.delete-btn .hover-text {
+  position: absolute;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: width 0.5s ease;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+
+.delete-btn:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 8px var(--animation-color));
+}
+/* 3D Pie Chart Card Effect */
+
+.pie-parent {
+  width: 100%;
+  perspective: 1200px;
+}
+
+.pie-card {
+  position: relative;
+  padding-top: 30px;
+  border: 2px solid #1f2937;
+  transform-style: preserve-3d;
+  background: linear-gradient(
+      135deg,
+      transparent 20%,
+      rgba(255,255,255,0.03) 0 30%,
+      transparent 0
+    ),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.02) -6% 6%,
+      #0f172a 0 18%
+    );
+  background-size: 60px 60px;
+  background-color: #0f172a;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: rgba(0,0,0,0.4) 0px 30px 40px -15px;
+  transition: all 0.6s ease;
+}
+
+.pie-card:hover {
+  background-position: -80px 80px, -80px 80px;
+  transform: rotate3d(0.5, 1, 0, 20deg);
+}
+
+.pie-content {
+  background: linear-gradient(135deg, #1e293b, #111827);
+  border-radius: 20px;
+  padding: 40px 25px 25px 25px;
+  transform-style: preserve-3d;
+  transition: 0.6s ease;
+}
+
+.pie-title {
+  color: #22d3ee;
+  font-size: 20px;
+  font-weight: 800;
+  transform: translate3d(0, 0, 60px);
+  transition: 0.6s ease;
+}
+
+.pie-total {
+  color: #94a3b8;
+  font-size: 14px;
+  transform: translate3d(0, 0, 40px);
+  transition: 0.6s ease;
+}
+
+.pie-card:hover .pie-title {
+  transform: translate3d(0, 0, 80px);
+}
+
+.pie-card:hover .pie-total {
+  transform: translate3d(0, 0, 60px);
+}
+
+/* Neo Brutalism Add Transaction Card */
+
+.neo-card {
+  width: 100%;
+  background: #13a5bb; /* neon mint */
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 4px solid #05060f;
+  box-shadow: 0.5rem 0.5rem #05060f;
+  overflow: hidden;
+  color: #05060f;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.neo-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 0.8rem 0.8rem #05060f;
+}
+
+.neo-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.neo-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.neo-input {
+  padding: 10px;
+  border-radius: 0.5rem;
+  border: 3px solid #05060f;
+  font-size: 14px;
+  background: #ffffff;
+  color: #05060f;
+  transition: transform 0.2s ease;
+}
+
+.neo-input:focus {
+  outline: none;
+  transform: scale(1.03);
+}
+
+.neo-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
