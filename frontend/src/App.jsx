@@ -143,7 +143,7 @@ const App = () => {
     };
 
     try {
-      const res = await axios.post(`${API}/transactions/`, newTransaction)
+      const res = await axios.post(`${API}/transactions/`, newTransaction);
 
       setTransactions((prev) => [...prev, res.data]);
 
@@ -162,7 +162,7 @@ const App = () => {
 
   const deleteTransaction = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/transactions/${id}`);
+      await axios.delete(`${API}/transactions/${id}`);
       setTransactions((prev) => prev.filter((t) => t.id !== id));
     } catch (err) {
       console.log(err);
