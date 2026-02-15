@@ -1,4 +1,4 @@
-# 💎 Personal Expenditure Tracker – Full Stack SaaS Dashboard
+#  Personal Expenditure Tracker – Full Stack SaaS Dashboard
 
 A modern full-stack Personal Expense Tracking Web Application built with React + FastAPI.
 
@@ -6,7 +6,7 @@ This project helps users track expenses, analyze spending patterns, and visualiz
 
 ---
 
-# 🧠 Project Overview
+#  Project Overview
 
 The Personal Expenditure Tracker is a SaaS-style dashboard that allows users to:
 
@@ -27,7 +27,7 @@ Backend → FastAPI + SQLAlchemy + SQLite
 
 ---
 
-# 🖥️ Frontend Tech Stack
+#  Frontend Tech Stack
 
 - React (Component-based architecture)
 - Vite (Fast development server)
@@ -47,7 +47,7 @@ Backend → FastAPI + SQLAlchemy + SQLite
 
 ---
 
-# ⚙️ Backend Tech Stack
+#  Backend Tech Stack
 
 - FastAPI (High performance Python API framework)
 - SQLAlchemy (ORM for database operations)
@@ -57,7 +57,7 @@ Backend → FastAPI + SQLAlchemy + SQLite
 
 ---
 
-# 🗄️ Database Design
+#  Database Design
 
 ### Transaction Table
 
@@ -75,7 +75,7 @@ Backend → FastAPI + SQLAlchemy + SQLite
 
 ---
 
-# 🔌 API Endpoints
+#  API Endpoints
 
 ### Get All Transactions
 GET `/transactions`
@@ -88,7 +88,7 @@ DELETE `/transactions/{id}`
 
 ---
 
-# 🚀 Backend Setup Guide
+#  Backend Setup Guide
 
 ```bash
 cd backend
